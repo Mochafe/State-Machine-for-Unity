@@ -1,2 +1,2 @@
-# State-Machine-for-Unity
+# State-Machine for Unity
 Easy-to-use state machine
