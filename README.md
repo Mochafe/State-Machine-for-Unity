@@ -1,7 +1,7 @@
 # State-Machine for Unity
 Easy-to-use state machine
 ## What is this?
-A state machine will allow to create and manage the transition between the various states this method is particularly used to avoid the boolean forest and to get lost in conditions which makes the code not very modular and extensible whereas with a state machine it would be enough to add a state and transitions without having to modify all the code already written
+A state machine will allow to create and manage the transition between the various states, this method is particularly used to avoid the boolean forest and to get lost in conditions which makes the code not very modular and extensible whereas with a state machine it would be enough to add a state and transitions without having to modify all the code already written
 ## How does it work?
 a state machine will perform state changes (of a player for example) using transitions that you would define yourself 
 ## How to use
