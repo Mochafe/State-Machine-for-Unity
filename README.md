@@ -1,6 +1,9 @@
 # State-Machine for Unity
 Easy-to-use state machine
-
+## What is this?
+A state machine will allow to create and manage the transition between the various states this method is particularly used to avoid the boolean forest and to get lost in conditions which makes the code not very modular and extensible whereas with a state machine it would be enough to add a state and transitions without having to modify all the code already written
+## How does it work?
+a state machine will perform state changes (of a player for example) using transitions that you would define yourself 
 ## How to use
 ### How to Create a new State
 You will need to create a class that inherits from BaseState
@@ -36,9 +39,12 @@ here I assume that it is a state machine for a player and that you have created 
     
     void Start()
     {
-      void InitStates(); // here we will initialize our states
-      void InitTransition(); // here we will initialise our transitions for this we will need a function that returns a boolean for each transition
-      void InitStatesMachine(); // now that we have initialized our states and transitions we will initialize the state machine with all these 
+       // here we will initialize our states
+      void InitStates();
+       // here we will initialise our transitions for this we will need a function that returns a boolean for each transition
+      void InitTransition();
+       // now that we have initialized our states and transitions we will initialize the state machine with all these 
+      void InitStatesMachine();
     }
     
     void InitStates()
@@ -69,14 +75,19 @@ here I assume that it is a state machine for a player and that you have created 
     
     void InitTransition()
     {
-      toIdle = new Transition(idle, isIdle); // I want the idle state to be accessible from any state so I don't put an origin state but only the destination
-      idleToWalk = new Transition(idle, walk, isWalking); // now I want to be able to go from idle to walk
-      walkToRun = new Transition(walk, run, isRunning); //I want to go from walking to running
+       // I want the idle state to be accessible from any state so I don't put an origin state but only the destination
+      toIdle = new Transition(idle, isIdle);
+       // now I want to be able to go from idle to walk
+      idleToWalk = new Transition(idle, walk, isWalking);
+       // I want to go from walking to running
+      walkToRun = new Transition(walk, run, isRunning);
     }
     
     void InitStatesMachine()
     {
-      playerStateMachine = new StateMachine(idle, this) // idle will be our starting state and this refers to our MonoBehaviour to be able to access it in our states to be able to modify variables that are there
+    /* idle will be our starting state and this refers to our MonoBehaviour
+    to be able to access it in our states to be able to modify variables that are there*/
+      playerStateMachine = new StateMachine(idle, this);
       
       //we will add our previously initialized states to our state machine
       playerStateMachine.AddState(idle);
